@@ -14,13 +14,31 @@
 </head>
 <body>
 
-  <!-- SVG defs (grain, gradients) -->
+  <!-- SVG defs (grain, petal shape) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <filter id="grainy">
         <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
         <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0"/>
       </filter>
+      <symbol id="petal" viewBox="0 0 100 160">
+        <path d="M50,4 C 78,40 96,82 78,128 C 66,156 34,156 22,128 C 4,82 22,40 50,4 Z"/>
+      </symbol>
+      <symbol id="curve-down" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,0 C320,90 720,90 1080,40 C1260,15 1380,5 1440,0 L1440,100 L0,100 Z"/>
+      </symbol>
+      <symbol id="curve-up" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,100 C320,10 720,10 1080,60 C1260,85 1380,95 1440,100 L1440,0 L0,0 Z"/>
+      </symbol>
+      <symbol id="bloom" viewBox="0 0 200 200">
+        <g fill="none" stroke="currentColor" stroke-width="1">
+          <ellipse cx="100" cy="100" rx="80" ry="30"/>
+          <ellipse cx="100" cy="100" rx="80" ry="30" transform="rotate(45 100 100)"/>
+          <ellipse cx="100" cy="100" rx="80" ry="30" transform="rotate(90 100 100)"/>
+          <ellipse cx="100" cy="100" rx="80" ry="30" transform="rotate(135 100 100)"/>
+          <circle cx="100" cy="100" r="6" fill="currentColor"/>
+        </g>
+      </symbol>
     </defs>
   </svg>
 
@@ -62,10 +80,11 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <!-- Decorative drifting rings -->
+    <!-- Decorative drifting layers -->
     <div class="hero-bg" aria-hidden="true">
       <div class="orb orb-a"></div>
       <div class="orb orb-b"></div>
+      <div class="orb orb-c"></div>
       <svg class="rings" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
         <g fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1">
           <circle cx="300" cy="300" r="80"/>
@@ -74,6 +93,12 @@
           <circle cx="300" cy="300" r="280"/>
         </g>
       </svg>
+      <span class="ghost-word ghost-word-a">listen</span>
+      <span class="ghost-word ghost-word-b">well.</span>
+      <svg class="petal petal-a" aria-hidden="true"><use href="#petal"/></svg>
+      <svg class="petal petal-b" aria-hidden="true"><use href="#petal"/></svg>
+      <svg class="petal petal-c" aria-hidden="true"><use href="#petal"/></svg>
+      <svg class="petal petal-d" aria-hidden="true"><use href="#petal"/></svg>
     </div>
 
     <div class="hero-frame">
@@ -100,8 +125,17 @@
             </a>
             <a href="#about" class="btn btn-ghost">About the practice</a>
           </div>
+
+          <ul class="hero-badges" data-reveal data-reveal-delay="800">
+            <li><span class="dot"></span><span>BACP &middot; SLAP registered</span></li>
+            <li><span class="dot"></span><span>In-person &middot; Online</span></li>
+            <li><span class="dot"></span><span>50-min &amp; 80-min</span></li>
+          </ul>
         </div>
         <div class="hero-mark" aria-hidden="true">
+          <div class="hero-mark-bloom">
+            <svg viewBox="0 0 200 200"><use href="#bloom"/></svg>
+          </div>
           <div class="hero-mark-float">
             <img src="assets/logo.svg" alt=""/>
           </div>
@@ -125,33 +159,38 @@
         <span class="hero-scroll-line"></span>
       </a>
     </div>
+
+    <!-- Curve divider into ticker -->
+    <svg class="divider divider-bottom" aria-hidden="true" preserveAspectRatio="none"><use href="#curve-down"/></svg>
   </section>
 
   <!-- MARQUEE TICKER -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Counseling</span><span class="dot">&middot;</span>
-      <span><em>A doctor who listens</em></span><span class="dot">&middot;</span>
-      <span>Psychotherapy</span><span class="dot">&middot;</span>
-      <span><em>Est. 2019 &middot; Colombo</em></span><span class="dot">&middot;</span>
-      <span>By appointment</span><span class="dot">&middot;</span>
-      <span><em>A conversation is a kind of medicine</em></span><span class="dot">&middot;</span>
-      <span>Counseling</span><span class="dot">&middot;</span>
-      <span><em>A doctor who listens</em></span><span class="dot">&middot;</span>
-      <span>Psychotherapy</span><span class="dot">&middot;</span>
-      <span><em>Est. 2019 &middot; Colombo</em></span><span class="dot">&middot;</span>
-      <span>By appointment</span><span class="dot">&middot;</span>
-      <span><em>A conversation is a kind of medicine</em></span><span class="dot">&middot;</span>
+      <span>Counseling</span><span class="dot">&#10047;</span>
+      <span><em>A doctor who listens</em></span><span class="dot">&#10047;</span>
+      <span>Psychotherapy</span><span class="dot">&#10047;</span>
+      <span><em>Est. 2019 &middot; Colombo</em></span><span class="dot">&#10047;</span>
+      <span>By appointment</span><span class="dot">&#10047;</span>
+      <span><em>A conversation is a kind of medicine</em></span><span class="dot">&#10047;</span>
+      <span>Counseling</span><span class="dot">&#10047;</span>
+      <span><em>A doctor who listens</em></span><span class="dot">&#10047;</span>
+      <span>Psychotherapy</span><span class="dot">&#10047;</span>
+      <span><em>Est. 2019 &middot; Colombo</em></span><span class="dot">&#10047;</span>
+      <span>By appointment</span><span class="dot">&#10047;</span>
+      <span><em>A conversation is a kind of medicine</em></span><span class="dot">&#10047;</span>
     </div>
   </div>
 
-  <!-- PRACTICE / SERVICES -->
+  <!-- PRACTICE / SERVICES (BENTO) -->
   <section class="section practice" id="practice">
     <span class="chapter-mark" aria-hidden="true">01 &middot; The Practice</span>
 
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>01 &mdash; The Practice</span>
-      <h2 class="sec-title" data-reveal data-reveal-delay="80">A space to be <em>heard.</em></h2>
+    <div class="practice-head">
+      <div>
+        <span class="sec-num" data-reveal>01 &mdash; The Practice</span>
+        <h2 class="sec-title" data-reveal data-reveal-delay="80">A space to be <em>heard.</em></h2>
+      </div>
       <p class="sec-desc" data-reveal data-reveal-delay="160">
         The practice offers considered, evidence-based counseling and
         psychotherapy &mdash; long conversations across the small and
@@ -159,53 +198,64 @@
       </p>
     </div>
 
-    <div class="services" data-stagger>
-      <article class="service" data-reveal>
-        <span class="service-num">A</span>
+    <div class="bento">
+      <article class="bento-card bcard-a is-feature" data-reveal>
+        <span class="bcard-num">A</span>
         <h3>Individual <em>Therapy</em></h3>
         <p>One-to-one sessions for stress, anxiety, low mood, self-esteem,
-        and the things you've been carrying alone for too long.</p>
-        <span class="service-link mono">Learn more &rarr;</span>
+        and the things you've been carrying alone for too long. Bring it in,
+        and we'll work with what's there.</p>
+        <a href="#book" class="bcard-link">Begin a conversation <span>&rarr;</span></a>
+        <svg class="bcard-bloom" aria-hidden="true"><use href="#bloom"/></svg>
       </article>
-      <article class="service" data-reveal>
-        <span class="service-num">B</span>
+
+      <article class="bento-card bcard-b" data-reveal data-reveal-delay="80">
+        <span class="bcard-num">B</span>
         <h3>Couples <em>&amp; Relationships</em></h3>
         <p>Communication, conflict, intimacy, infidelity and repair &mdash;
         a third presence in the room that helps both voices land.</p>
-        <span class="service-link mono">Learn more &rarr;</span>
       </article>
-      <article class="service" data-reveal>
-        <span class="service-num">C</span>
+
+      <article class="bento-card bcard-c" data-reveal data-reveal-delay="160">
+        <span class="bcard-num">C</span>
         <h3>Anxiety &amp; <em>Depression</em></h3>
         <p>Evidence-based work for panic, persistent worry, low mood and
         burnout. CBT, ACT and reflective approaches, matched to you.</p>
-        <span class="service-link mono">Learn more &rarr;</span>
       </article>
-      <article class="service" data-reveal>
-        <span class="service-num">D</span>
+
+      <article class="bento-card bcard-d is-image" data-reveal data-reveal-delay="240">
+        <img src="assets/images/journal-3.jpg" alt=""/>
+        <div class="bcard-image-overlay">
+          <span class="mono">For couples</span>
+          <p>&ldquo;We came in to fix a fight. We left with a way of <em>talking.</em>&rdquo;</p>
+        </div>
+      </article>
+
+      <article class="bento-card bcard-e" data-reveal data-reveal-delay="320">
+        <span class="bcard-num">D</span>
         <h3>Trauma <em>&amp; Grief</em></h3>
         <p>Careful, paced work for trauma, loss, and the kinds of grief
         that don't have an obvious shape &mdash; held without rush.</p>
-        <span class="service-link mono">Learn more &rarr;</span>
       </article>
-      <article class="service" data-reveal>
-        <span class="service-num">E</span>
+
+      <article class="bento-card bcard-f" data-reveal data-reveal-delay="400">
+        <span class="bcard-num">E</span>
         <h3>Life <em>Transitions</em></h3>
         <p>Career shifts, parenthood, separation, migration, midlife &mdash;
         the seasons that ask new questions of who you are.</p>
-        <span class="service-link mono">Learn more &rarr;</span>
       </article>
-      <article class="service" data-reveal>
-        <span class="service-num">F</span>
+
+      <article class="bento-card bcard-g" data-reveal data-reveal-delay="480">
+        <span class="bcard-num">F</span>
         <h3>Wellness <em>Conversations</em></h3>
         <p>Open-format sessions for reflection, second opinions, and the
         questions that don't yet have a clinical name.</p>
-        <span class="service-link mono">Learn more &rarr;</span>
       </article>
     </div>
   </section>
 
-  <div class="rule"></div>
+  <!-- Curve divider -->
+  <svg class="divider-section divider-cream-to-cream" aria-hidden="true" preserveAspectRatio="none"><use href="#curve-up"/></svg>
 
   <!-- ABOUT -->
   <section class="section about" id="about">
@@ -213,12 +263,14 @@
 
     <div class="about-grid">
       <div class="about-img" data-reveal data-parallax="0.12">
+        <span class="about-blob" aria-hidden="true"></span>
+        <span class="about-bigno" aria-hidden="true">02</span>
         <div class="about-img-frame">
           <img src="assets/images/about.jpg" alt="Dr. Jaavi at the practice"/>
           <div class="about-img-tone"></div>
         </div>
         <span class="about-cap mono">Dr. Jaavi Rahman &middot; DCounsPsych &middot; MBPsS</span>
-        <span class="about-img-num">02a</span>
+        <svg class="about-petal" aria-hidden="true"><use href="#petal"/></svg>
       </div>
       <div class="about-copy">
         <span class="sec-num" data-reveal>02 &mdash; About</span>
@@ -229,12 +281,19 @@
           CBT, psychodynamic and humanistic approaches in a way that fits
           the person, not the textbook.
         </p>
-        <p data-reveal data-reveal-delay="220">
+
+        <blockquote class="about-pull" data-reveal data-reveal-delay="200">
+          <span aria-hidden="true">&ldquo;</span>
+          The work isn't to fix you. It's to sit with you, gently, until
+          the next true sentence becomes <em>possible.</em>
+        </blockquote>
+
+        <p data-reveal data-reveal-delay="260">
           The practice was founded in 2019 on a simple idea &mdash; that
           therapy works best when clients are heard fully, paced carefully,
           and offered choices rather than instructions.
         </p>
-        <ul class="creds" data-reveal data-reveal-delay="300">
+        <ul class="creds" data-reveal data-reveal-delay="340">
           <li><span class="mono">BA Psychology</span><span>University of Colombo</span></li>
           <li><span class="mono">MSc Counselling</span><span>King's College, London</span></li>
           <li><span class="mono">Doctorate</span><span>Counselling Psychology, UK</span></li>
@@ -245,13 +304,15 @@
     </div>
   </section>
 
-  <!-- APPROACH -->
+  <!-- APPROACH (FEATURED + 3) -->
   <section class="section approach">
     <span class="chapter-mark light" aria-hidden="true">03 &middot; The Approach</span>
 
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>03 &mdash; The Approach</span>
-      <h2 class="sec-title" data-reveal data-reveal-delay="80">Four symbols, one <em>promise.</em></h2>
+    <div class="approach-head">
+      <div>
+        <span class="sec-num" data-reveal>03 &mdash; The Approach</span>
+        <h2 class="sec-title" data-reveal data-reveal-delay="80">Four symbols, one <em>promise.</em></h2>
+      </div>
       <p class="sec-desc" data-reveal data-reveal-delay="160">
         The mark you see at the top of this page is more than a logo &mdash;
         it is the practice in miniature.
@@ -259,30 +320,36 @@
     </div>
 
     <div class="approach-grid">
-      <article class="pillar" data-reveal>
+      <article class="pillar pillar-feature" data-reveal>
         <span class="pillar-letter">A</span>
+        <span class="pillar-tag mono">Featured</span>
         <h3>The <em>Cross</em></h3>
         <p>Clinical rigour. Real, properly trained therapy &mdash;
-        evidence-based and never improvised.</p>
+        evidence-based and never improvised. The cross holds
+        the centre of the mark for a reason.</p>
+        <svg class="pillar-bloom" aria-hidden="true"><use href="#bloom"/></svg>
       </article>
-      <article class="pillar" data-reveal data-reveal-delay="100">
-        <span class="pillar-letter">B</span>
-        <h3>The <em>Profile</em></h3>
-        <p>You at the centre. Sessions designed around the person
-        in front of us, not a protocol on a page.</p>
-      </article>
-      <article class="pillar" data-reveal data-reveal-delay="200">
-        <span class="pillar-letter">C</span>
-        <h3>The <em>Stethoscope</em></h3>
-        <p>Listening, twice. Once for what is being said,
-        and again for what is sitting just beneath it.</p>
-      </article>
-      <article class="pillar" data-reveal data-reveal-delay="300">
-        <span class="pillar-letter">D</span>
-        <h3>The <em>Lotus</em></h3>
-        <p>Compassion as method. Holistic, unhurried, and held
-        with the warmth a therapy room should always have.</p>
-      </article>
+
+      <div class="pillar-stack">
+        <article class="pillar" data-reveal data-reveal-delay="100">
+          <span class="pillar-letter">B</span>
+          <h3>The <em>Profile</em></h3>
+          <p>You at the centre. Sessions designed around the person
+          in front of us, not a protocol on a page.</p>
+        </article>
+        <article class="pillar" data-reveal data-reveal-delay="200">
+          <span class="pillar-letter">C</span>
+          <h3>The <em>Stethoscope</em></h3>
+          <p>Listening, twice. Once for what is being said,
+          and again for what is sitting just beneath it.</p>
+        </article>
+        <article class="pillar" data-reveal data-reveal-delay="300">
+          <span class="pillar-letter">D</span>
+          <h3>The <em>Lotus</em></h3>
+          <p>Compassion as method. Holistic, unhurried, and held
+          with the warmth a therapy room should always have.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -290,6 +357,9 @@
   <section class="quote-break">
     <div class="quote-bg" aria-hidden="true">
       <span class="qmark">&ldquo;</span>
+      <svg class="qpetal qpetal-a"><use href="#petal"/></svg>
+      <svg class="qpetal qpetal-b"><use href="#petal"/></svg>
+      <svg class="qpetal qpetal-c"><use href="#petal"/></svg>
     </div>
     <div class="quote-frame">
       <p class="quote-text" data-reveal>
@@ -300,81 +370,121 @@
     </div>
   </section>
 
-  <!-- JOURNAL -->
+  <!-- JOURNAL (BENTO) -->
   <section class="section journal" id="journal">
     <span class="chapter-mark" aria-hidden="true">04 &middot; Journal</span>
 
-    <div class="sec-head journal-head">
+    <div class="journal-head">
       <div>
         <span class="sec-num" data-reveal>04 &mdash; Wellness Journal</span>
         <h2 class="sec-title" data-reveal data-reveal-delay="80">Notes for the <em>in-between</em> weeks.</h2>
       </div>
       <p class="sec-desc" data-reveal data-reveal-delay="160">
-        Short, careful pieces on the questions patients ask most &mdash;
-        sleep, cycles, hormones, and the small habits that quietly compound.
+        Short, careful pieces on the questions clients ask most &mdash;
+        sleep, anxiety, hormones, and the small habits that quietly compound.
       </p>
     </div>
 
-    <div class="posts">
-      <article class="post" data-reveal>
-        <a class="post-img" href="#">
+    <div class="journal-bento">
+      <article class="jcard jcard-feature" data-reveal>
+        <a class="jcard-img" href="#">
           <img src="assets/images/journal-1.jpg" alt=""/>
-          <span class="post-hover mono">Read &rarr;</span>
+          <span class="jcard-tag mono">Featured</span>
         </a>
-        <div class="post-meta">
+        <div class="jcard-meta">
           <span class="mono">Reflection &middot; 03 min read</span>
           <h3>Three gentle questions to ask yourself this week.</h3>
+          <p>A short practice of noticing &mdash; designed to be done in five
+          quiet minutes, with a candle if you have one.</p>
           <a href="#" class="post-link">Read the note <span>&rarr;</span></a>
         </div>
       </article>
-      <article class="post" data-reveal data-reveal-delay="120">
-        <a class="post-img" href="#">
+
+      <article class="jcard jcard-small" data-reveal data-reveal-delay="120">
+        <a class="jcard-img" href="#">
           <img src="assets/images/journal-2.jpg" alt=""/>
-          <span class="post-hover mono">Read &rarr;</span>
         </a>
-        <div class="post-meta">
-          <span class="mono">Anxiety &middot; 04 min read</span>
+        <div class="jcard-meta">
+          <span class="mono">Anxiety &middot; 04 min</span>
           <h3>When worry stops being useful.</h3>
-          <a href="#" class="post-link">Read the note <span>&rarr;</span></a>
+          <a href="#" class="post-link">Read <span>&rarr;</span></a>
         </div>
       </article>
-      <article class="post" data-reveal data-reveal-delay="240">
-        <a class="post-img" href="#">
+
+      <article class="jcard jcard-small" data-reveal data-reveal-delay="200">
+        <a class="jcard-img" href="#">
           <img src="assets/images/journal-3.jpg" alt=""/>
-          <span class="post-hover mono">Read &rarr;</span>
         </a>
-        <div class="post-meta">
-          <span class="mono">Relationships &middot; 05 min read</span>
+        <div class="jcard-meta">
+          <span class="mono">Relationships &middot; 05 min</span>
           <h3>The conversations couples keep avoiding.</h3>
-          <a href="#" class="post-link">Read the note <span>&rarr;</span></a>
+          <a href="#" class="post-link">Read <span>&rarr;</span></a>
         </div>
       </article>
     </div>
   </section>
 
-  <div class="rule"></div>
-
-  <!-- TESTIMONIALS -->
+  <!-- TESTIMONIALS - MARQUEE -->
   <section class="section testimonials">
-    <span class="chapter-mark" aria-hidden="true">05 &middot; In Patients' Words</span>
+    <span class="chapter-mark" aria-hidden="true">05 &middot; In Clients' Words</span>
 
-    <div class="sec-head">
-      <span class="sec-num" data-reveal>05 &mdash; In Patients' Words</span>
+    <div class="sec-head sec-head-center">
+      <span class="sec-num" data-reveal>05 &mdash; In Clients' Words</span>
       <h2 class="sec-title" data-reveal data-reveal-delay="80">Quietly <em>different.</em></h2>
     </div>
-    <div class="t-grid">
-      <figure class="t-card" data-reveal>
-        <blockquote>I left feeling like a person, not a problem to be moved through.</blockquote>
-        <figcaption><span>Mr. A. &middot; <em>Colombo</em></span></figcaption>
-      </figure>
-      <figure class="t-card" data-reveal data-reveal-delay="120">
-        <blockquote>The first session where I didn't feel rushed to have an answer.</blockquote>
-        <figcaption><span>Ms. R. &middot; <em>Kandy</em></span></figcaption>
-      </figure>
-      <figure class="t-card" data-reveal data-reveal-delay="240">
-        <blockquote>We came in to fix a fight. We left with a way of talking.</blockquote>
-        <figcaption><span>Mr. &amp; Mrs. S. &middot; <em>Negombo</em></span></figcaption>
-      </figure>
+
+    <div class="t-marquee" aria-hidden="false">
+      <div class="t-track">
+        <figure class="t-card t-tone-cream">
+          <blockquote>I left feeling like a person, not a problem to be moved through.</blockquote>
+          <figcaption>Mr. A. &middot; <em>Colombo</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-rose">
+          <blockquote>The first session where I didn't feel rushed to have an answer.</blockquote>
+          <figcaption>Ms. R. &middot; <em>Kandy</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-plum">
+          <blockquote>We came in to fix a fight. We left with a way of talking.</blockquote>
+          <figcaption>Mr. &amp; Mrs. S. &middot; <em>Negombo</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-honey">
+          <blockquote>Calm room, calmer mind. I keep recommending Dr. Jaavi to friends.</blockquote>
+          <figcaption>Ms. P. &middot; <em>Dehiwala</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-cream">
+          <blockquote>She asks the question I'd been avoiding. Then she stays for the answer.</blockquote>
+          <figcaption>Ms. N. &middot; <em>Colombo</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-sand">
+          <blockquote>I came for grief. I stayed for the company of being understood.</blockquote>
+          <figcaption>Mr. K. &middot; <em>Galle</em></figcaption>
+        </figure>
+        <!-- duplicate set for seamless loop -->
+        <figure class="t-card t-tone-cream" aria-hidden="true">
+          <blockquote>I left feeling like a person, not a problem to be moved through.</blockquote>
+          <figcaption>Mr. A. &middot; <em>Colombo</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-rose" aria-hidden="true">
+          <blockquote>The first session where I didn't feel rushed to have an answer.</blockquote>
+          <figcaption>Ms. R. &middot; <em>Kandy</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-plum" aria-hidden="true">
+          <blockquote>We came in to fix a fight. We left with a way of talking.</blockquote>
+          <figcaption>Mr. &amp; Mrs. S. &middot; <em>Negombo</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-honey" aria-hidden="true">
+          <blockquote>Calm room, calmer mind. I keep recommending Dr. Jaavi to friends.</blockquote>
+          <figcaption>Ms. P. &middot; <em>Dehiwala</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-cream" aria-hidden="true">
+          <blockquote>She asks the question I'd been avoiding. Then she stays for the answer.</blockquote>
+          <figcaption>Ms. N. &middot; <em>Colombo</em></figcaption>
+        </figure>
+        <figure class="t-card t-tone-sand" aria-hidden="true">
+          <blockquote>I came for grief. I stayed for the company of being understood.</blockquote>
+          <figcaption>Mr. K. &middot; <em>Galle</em></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -402,6 +512,7 @@
       </div>
 
       <form class="visit-form" id="book" novalidate data-reveal data-reveal-delay="200">
+        <span class="form-blob" aria-hidden="true"></span>
         <span class="mono">Request an appointment</span>
         <h3 class="form-title">A first <em>conversation.</em></h3>
 
@@ -444,6 +555,8 @@
 
   <!-- FOOTER -->
   <footer class="footer">
+    <svg class="divider-section divider-into-footer" aria-hidden="true" preserveAspectRatio="none"><use href="#curve-down"/></svg>
+
     <div class="footer-mark" aria-hidden="true">
       <span>Listen</span><span><em>well.</em></span>
     </div>
