@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Talk With Dr. Jaavi — A doctor who listens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Talk With Dr. Jaavi — Counseling and psychotherapy practice in Colombo. Considered, compassionate care offered through conversation."/>
+  <meta name="theme-color" content="#8c1e5c"/>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <!-- SVG defs (grain, gradients) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="grainy">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+        <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Page-load splash -->
+  <div class="splash" aria-hidden="true">
+    <div class="splash-mark"><img src="assets/logo.svg" alt=""/></div>
+  </div>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Progress bar -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-brand" aria-label="Talk With Dr. Jaavi home">
+      <span class="nav-logo-wrap"><img src="assets/logo.svg" alt="" class="nav-logo"/></span>
+      <span class="nav-name">Talk With Dr. <em>Jaavi</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#practice" data-text="Practice"><span>Practice</span></a>
+      <a href="#about" data-text="About"><span>About</span></a>
+      <a href="#journal" data-text="Journal"><span>Journal</span></a>
+      <a href="#visit" data-text="Visit"><span>Visit</span></a>
+      <a href="#book" class="nav-cta">Book <span class="arr">&rarr;</span></a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-mobile" id="nav-mobile" hidden>
+      <a href="#practice">Practice</a>
+      <a href="#about">About</a>
+      <a href="#journal">Journal</a>
+      <a href="#visit">Visit</a>
+      <a href="#book" class="nav-cta">Book &rarr;</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <!-- Decorative drifting rings -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <svg class="rings" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
+        <g fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1">
+          <circle cx="300" cy="300" r="80"/>
+          <circle cx="300" cy="300" r="140"/>
+          <circle cx="300" cy="300" r="210"/>
+          <circle cx="300" cy="300" r="280"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-frame">
+      <div class="hero-head" data-reveal>
+        <span class="mono">Counseling &middot; Psychotherapy &middot; Colombo</span>
+        <span class="mono">Est. 2019</span>
+      </div>
+
+      <div class="hero-body">
+        <div class="hero-copy">
+          <h1 class="display">
+            <span class="line"><span class="word"><span>Some</span></span> <span class="word"><span>conversations</span></span></span>
+            <span class="line"><span class="word"><em><span>change</span></em></span> <span class="word"><span>things.</span></span></span>
+          </h1>
+          <p class="lede" data-reveal data-reveal-delay="500">
+            A counseling and psychotherapy practice in Colombo &mdash;
+            built on the quiet belief that being heard is the first part
+            of being well.
+          </p>
+          <div class="hero-cta" data-reveal data-reveal-delay="650">
+            <a href="#book" class="btn btn-primary magnetic">
+              <span class="btn-label">Book a session</span>
+              <span class="btn-arrow">&rarr;</span>
+            </a>
+            <a href="#about" class="btn btn-ghost">About the practice</a>
+          </div>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <div class="hero-mark-float">
+            <img src="assets/logo.svg" alt=""/>
+          </div>
+          <span class="hero-mark-tag mono">01 &middot; The mark</span>
+        </div>
+      </div>
+
+      <div class="hero-foot" data-reveal data-reveal-delay="800">
+        <div>
+          <span class="mono">Quote</span>
+          <p class="pull">&ldquo;A conversation is a kind of <em>medicine.</em>&rdquo;</p>
+        </div>
+        <div class="hero-foot-meta">
+          <span class="mono">Now accepting</span>
+          <span class="hero-foot-big">New clients &mdash; <em>2026</em></span>
+        </div>
+      </div>
+
+      <a href="#practice" class="hero-scroll" aria-label="Scroll to next section">
+        <span class="mono">Scroll</span>
+        <span class="hero-scroll-line"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- MARQUEE TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Counseling</span><span class="dot">&middot;</span>
+      <span><em>A doctor who listens</em></span><span class="dot">&middot;</span>
+      <span>Psychotherapy</span><span class="dot">&middot;</span>
+      <span><em>Est. 2019 &middot; Colombo</em></span><span class="dot">&middot;</span>
+      <span>By appointment</span><span class="dot">&middot;</span>
+      <span><em>A conversation is a kind of medicine</em></span><span class="dot">&middot;</span>
+      <span>Counseling</span><span class="dot">&middot;</span>
+      <span><em>A doctor who listens</em></span><span class="dot">&middot;</span>
+      <span>Psychotherapy</span><span class="dot">&middot;</span>
+      <span><em>Est. 2019 &middot; Colombo</em></span><span class="dot">&middot;</span>
+      <span>By appointment</span><span class="dot">&middot;</span>
+      <span><em>A conversation is a kind of medicine</em></span><span class="dot">&middot;</span>
+    </div>
+  </div>
+
+  <!-- PRACTICE / SERVICES -->
+  <section class="section practice" id="practice">
+    <span class="chapter-mark" aria-hidden="true">01 &middot; The Practice</span>
+
+    <div class="sec-head">
+      <span class="sec-num" data-reveal>01 &mdash; The Practice</span>
+      <h2 class="sec-title" data-reveal data-reveal-delay="80">A space to be <em>heard.</em></h2>
+      <p class="sec-desc" data-reveal data-reveal-delay="160">
+        The practice offers considered, evidence-based counseling and
+        psychotherapy &mdash; long conversations across the small and
+        large chapters of a life.
+      </p>
+    </div>
+
+    <div class="services" data-stagger>
+      <article class="service" data-reveal>
+        <span class="service-num">A</span>
+        <h3>Individual <em>Therapy</em></h3>
+        <p>One-to-one sessions for stress, anxiety, low mood, self-esteem,
+        and the things you've been carrying alone for too long.</p>
+        <span class="service-link mono">Learn more &rarr;</span>
+      </article>
+      <article class="service" data-reveal>
+        <span class="service-num">B</span>
+        <h3>Couples <em>&amp; Relationships</em></h3>
+        <p>Communication, conflict, intimacy, infidelity and repair &mdash;
+        a third presence in the room that helps both voices land.</p>
+        <span class="service-link mono">Learn more &rarr;</span>
+      </article>
+      <article class="service" data-reveal>
+        <span class="service-num">C</span>
+        <h3>Anxiety &amp; <em>Depression</em></h3>
+        <p>Evidence-based work for panic, persistent worry, low mood and
+        burnout. CBT, ACT and reflective approaches, matched to you.</p>
+        <span class="service-link mono">Learn more &rarr;</span>
+      </article>
+      <article class="service" data-reveal>
+        <span class="service-num">D</span>
+        <h3>Trauma <em>&amp; Grief</em></h3>
+        <p>Careful, paced work for trauma, loss, and the kinds of grief
+        that don't have an obvious shape &mdash; held without rush.</p>
+        <span class="service-link mono">Learn more &rarr;</span>
+      </article>
+      <article class="service" data-reveal>
+        <span class="service-num">E</span>
+        <h3>Life <em>Transitions</em></h3>
+        <p>Career shifts, parenthood, separation, migration, midlife &mdash;
+        the seasons that ask new questions of who you are.</p>
+        <span class="service-link mono">Learn more &rarr;</span>
+      </article>
+      <article class="service" data-reveal>
+        <span class="service-num">F</span>
+        <h3>Wellness <em>Conversations</em></h3>
+        <p>Open-format sessions for reflection, second opinions, and the
+        questions that don't yet have a clinical name.</p>
+        <span class="service-link mono">Learn more &rarr;</span>
+      </article>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <span class="chapter-mark" aria-hidden="true">02 &middot; About</span>
+
+    <div class="about-grid">
+      <div class="about-img" data-reveal data-parallax="0.12">
+        <div class="about-img-frame">
+          <img src="assets/images/about.jpg" alt="Dr. Jaavi at the practice"/>
+          <div class="about-img-tone"></div>
+        </div>
+        <span class="about-cap mono">Dr. Jaavi Rahman &middot; DCounsPsych &middot; MBPsS</span>
+        <span class="about-img-num">02a</span>
+      </div>
+      <div class="about-copy">
+        <span class="sec-num" data-reveal>02 &mdash; About</span>
+        <h2 class="sec-title" data-reveal data-reveal-delay="80">The doctor who <em>listens.</em></h2>
+        <p data-reveal data-reveal-delay="160" class="dropcap">
+          Dr. Jaavi is a counseling psychologist based in Colombo,
+          working in long-form, integrative therapy &mdash; bringing together
+          CBT, psychodynamic and humanistic approaches in a way that fits
+          the person, not the textbook.
+        </p>
+        <p data-reveal data-reveal-delay="220">
+          The practice was founded in 2019 on a simple idea &mdash; that
+          therapy works best when clients are heard fully, paced carefully,
+          and offered choices rather than instructions.
+        </p>
+        <ul class="creds" data-reveal data-reveal-delay="300">
+          <li><span class="mono">BA Psychology</span><span>University of Colombo</span></li>
+          <li><span class="mono">MSc Counselling</span><span>King's College, London</span></li>
+          <li><span class="mono">Doctorate</span><span>Counselling Psychology, UK</span></li>
+          <li><span class="mono">Registered</span><span>BACP &middot; SLAP</span></li>
+          <li><span class="mono">Languages</span><span>English &middot; Sinhala &middot; Tamil</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section approach">
+    <span class="chapter-mark light" aria-hidden="true">03 &middot; The Approach</span>
+
+    <div class="sec-head">
+      <span class="sec-num" data-reveal>03 &mdash; The Approach</span>
+      <h2 class="sec-title" data-reveal data-reveal-delay="80">Four symbols, one <em>promise.</em></h2>
+      <p class="sec-desc" data-reveal data-reveal-delay="160">
+        The mark you see at the top of this page is more than a logo &mdash;
+        it is the practice in miniature.
+      </p>
+    </div>
+
+    <div class="approach-grid">
+      <article class="pillar" data-reveal>
+        <span class="pillar-letter">A</span>
+        <h3>The <em>Cross</em></h3>
+        <p>Clinical rigour. Real, properly trained therapy &mdash;
+        evidence-based and never improvised.</p>
+      </article>
+      <article class="pillar" data-reveal data-reveal-delay="100">
+        <span class="pillar-letter">B</span>
+        <h3>The <em>Profile</em></h3>
+        <p>You at the centre. Sessions designed around the person
+        in front of us, not a protocol on a page.</p>
+      </article>
+      <article class="pillar" data-reveal data-reveal-delay="200">
+        <span class="pillar-letter">C</span>
+        <h3>The <em>Stethoscope</em></h3>
+        <p>Listening, twice. Once for what is being said,
+        and again for what is sitting just beneath it.</p>
+      </article>
+      <article class="pillar" data-reveal data-reveal-delay="300">
+        <span class="pillar-letter">D</span>
+        <h3>The <em>Lotus</em></h3>
+        <p>Compassion as method. Holistic, unhurried, and held
+        with the warmth a therapy room should always have.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- QUOTE BREAK -->
+  <section class="quote-break">
+    <div class="quote-bg" aria-hidden="true">
+      <span class="qmark">&ldquo;</span>
+    </div>
+    <div class="quote-frame">
+      <p class="quote-text" data-reveal>
+        Your body tells a story.<br/>
+        I am here to <em>listen<span class="caret"></span></em>.
+      </p>
+      <span class="mono quote-attr" data-reveal data-reveal-delay="200">&mdash; Dr. Jaavi</span>
+    </div>
+  </section>
+
+  <!-- JOURNAL -->
+  <section class="section journal" id="journal">
+    <span class="chapter-mark" aria-hidden="true">04 &middot; Journal</span>
+
+    <div class="sec-head journal-head">
+      <div>
+        <span class="sec-num" data-reveal>04 &mdash; Wellness Journal</span>
+        <h2 class="sec-title" data-reveal data-reveal-delay="80">Notes for the <em>in-between</em> weeks.</h2>
+      </div>
+      <p class="sec-desc" data-reveal data-reveal-delay="160">
+        Short, careful pieces on the questions patients ask most &mdash;
+        sleep, cycles, hormones, and the small habits that quietly compound.
+      </p>
+    </div>
+
+    <div class="posts">
+      <article class="post" data-reveal>
+        <a class="post-img" href="#">
+          <img src="assets/images/journal-1.jpg" alt=""/>
+          <span class="post-hover mono">Read &rarr;</span>
+        </a>
+        <div class="post-meta">
+          <span class="mono">Reflection &middot; 03 min read</span>
+          <h3>Three gentle questions to ask yourself this week.</h3>
+          <a href="#" class="post-link">Read the note <span>&rarr;</span></a>
+        </div>
+      </article>
+      <article class="post" data-reveal data-reveal-delay="120">
+        <a class="post-img" href="#">
+          <img src="assets/images/journal-2.jpg" alt=""/>
+          <span class="post-hover mono">Read &rarr;</span>
+        </a>
+        <div class="post-meta">
+          <span class="mono">Anxiety &middot; 04 min read</span>
+          <h3>When worry stops being useful.</h3>
+          <a href="#" class="post-link">Read the note <span>&rarr;</span></a>
+        </div>
+      </article>
+      <article class="post" data-reveal data-reveal-delay="240">
+        <a class="post-img" href="#">
+          <img src="assets/images/journal-3.jpg" alt=""/>
+          <span class="post-hover mono">Read &rarr;</span>
+        </a>
+        <div class="post-meta">
+          <span class="mono">Relationships &middot; 05 min read</span>
+          <h3>The conversations couples keep avoiding.</h3>
+          <a href="#" class="post-link">Read the note <span>&rarr;</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials">
+    <span class="chapter-mark" aria-hidden="true">05 &middot; In Patients' Words</span>
+
+    <div class="sec-head">
+      <span class="sec-num" data-reveal>05 &mdash; In Patients' Words</span>
+      <h2 class="sec-title" data-reveal data-reveal-delay="80">Quietly <em>different.</em></h2>
+    </div>
+    <div class="t-grid">
+      <figure class="t-card" data-reveal>
+        <blockquote>I left feeling like a person, not a problem to be moved through.</blockquote>
+        <figcaption><span>Mr. A. &middot; <em>Colombo</em></span></figcaption>
+      </figure>
+      <figure class="t-card" data-reveal data-reveal-delay="120">
+        <blockquote>The first session where I didn't feel rushed to have an answer.</blockquote>
+        <figcaption><span>Ms. R. &middot; <em>Kandy</em></span></figcaption>
+      </figure>
+      <figure class="t-card" data-reveal data-reveal-delay="240">
+        <blockquote>We came in to fix a fight. We left with a way of talking.</blockquote>
+        <figcaption><span>Mr. &amp; Mrs. S. &middot; <em>Negombo</em></span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- VISIT / BOOK -->
+  <section class="section visit" id="visit">
+    <span class="chapter-mark light" aria-hidden="true">06 &middot; Visit</span>
+
+    <div class="visit-grid">
+      <div class="visit-info">
+        <span class="sec-num" data-reveal>06 &mdash; Visit</span>
+        <h2 class="sec-title" data-reveal data-reveal-delay="80">No. 14 <em>Gregory's Rd.</em></h2>
+        <p class="sec-desc" data-reveal data-reveal-delay="160">
+          Sessions are by appointment, in person or online.
+          A first conversation is usually 60 minutes.
+        </p>
+
+        <dl class="visit-list" data-reveal data-reveal-delay="240">
+          <div><dt class="mono">Address</dt><dd>14 Gregory's Rd, Colombo 07</dd></div>
+          <div><dt class="mono">Hours</dt><dd>Mon &ndash; Fri &middot; 9:00 &mdash; 18:00<br/>Sat &middot; 9:00 &mdash; 13:00</dd></div>
+          <div><dt class="mono">Sessions</dt><dd>In-person &middot; Online &middot; Hybrid</dd></div>
+          <div><dt class="mono">Phone</dt><dd>+94 11 7946 000</dd></div>
+          <div><dt class="mono">Email</dt><dd>hello@drjaavi.co</dd></div>
+          <div><dt class="mono">In crisis</dt><dd>If you are in immediate distress, please call CCC Line on 1333 or attend the nearest A&amp;E.</dd></div>
+        </dl>
+      </div>
+
+      <form class="visit-form" id="book" novalidate data-reveal data-reveal-delay="200">
+        <span class="mono">Request an appointment</span>
+        <h3 class="form-title">A first <em>conversation.</em></h3>
+
+        <label>
+          <span>Your name</span>
+          <input type="text" name="name" required autocomplete="name"/>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email"/>
+        </label>
+        <label>
+          <span>Phone</span>
+          <input type="tel" name="phone" autocomplete="tel"/>
+        </label>
+        <label>
+          <span>What brings you in</span>
+          <select name="reason">
+            <option>Individual therapy</option>
+            <option>Couples &amp; relationships</option>
+            <option>Anxiety &amp; depression</option>
+            <option>Trauma &amp; grief</option>
+            <option>Life transitions</option>
+            <option>Wellness conversation</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label class="full">
+          <span>Anything you'd like Dr. Jaavi to know in advance</span>
+          <textarea name="notes" rows="4" placeholder="Optional"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary magnetic">
+          <span class="btn-label">Send request</span>
+          <span class="btn-arrow">&rarr;</span>
+        </button>
+        <p class="form-fine mono">We reply within one working day. Your details are held in confidence.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-mark" aria-hidden="true">
+      <span>Listen</span><span><em>well.</em></span>
+    </div>
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo-mono-white.svg" alt=""/>
+        <div>
+          <span class="mono">Talk With</span>
+          <h4>Dr. <em>Jaavi</em></h4>
+        </div>
+      </div>
+      <p class="footer-tag">A doctor who <em>listens.</em></p>
+    </div>
+
+    <div class="footer-cols">
+      <div>
+        <span class="mono">Practice</span>
+        <ul>
+          <li><a href="#practice">Services</a></li>
+          <li><a href="#about">About Dr. Jaavi</a></li>
+          <li><a href="#journal">Wellness journal</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="mono">Visit</span>
+        <ul>
+          <li>14 Gregory's Rd</li>
+          <li>Colombo 07, LK</li>
+          <li>+94 11 7946 000</li>
+        </ul>
+      </div>
+      <div>
+        <span class="mono">Connect</span>
+        <ul>
+          <li><a href="#">Instagram &middot; @talk.with.dr.jaavi</a></li>
+          <li><a href="mailto:hello@drjaavi.co">hello@drjaavi.co</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="mono">The fine print</span>
+        <ul>
+          <li><a href="#">Patient privacy</a></li>
+          <li><a href="#">Terms of care</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-foot">
+      <span class="mono">&copy; 2026 Talk With Dr. Jaavi &middot; All rights reserved.</span>
+      <span class="mono">drjaavi.co</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

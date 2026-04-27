@@ -1,0 +1,17 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Build / temp
+node_modules/
+*.log
+
+# Photoshop / source files (keep web assets only)
+*.psd
+*.psb
+*.af
+debug/
