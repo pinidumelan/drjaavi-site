@@ -16,3 +16,10 @@ node_modules/
 *.psb
 *.af
 debug/
+
+# Client working material — never publish
+Posts/
+*.xlsx
+*Content Plan*
+jaavi-weekly-content-plan.md
+Cover/
